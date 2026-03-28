@@ -1,0 +1,21 @@
+name: java project
+on:
+    push:
+    workflow_dispatch:
+jobs:
+    java_project:
+        runs-on: ubuntu-latest
+        steps:
+         - name: code checkout
+           uses: actions/checkout@v6
+         - name: install java
+           uses: actions/setup-java@v5
+           with:
+             distribution: 'temurin' # See 'Supported distributions' for available options
+             java-version: '25'
+         - name: build java package
+           run: mvn clean package
+    
+
+
+
