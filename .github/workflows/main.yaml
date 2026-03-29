@@ -9,7 +9,11 @@ env:
   
 jobs:
     java_project:
-        runs-on: ubuntu-latest
+        
+        strategy:
+          matrix:
+            os: [ubuntu-latest, ubuntu-20.04]
+        runs-on: ${{matrix.os}}
         steps:
          - name: code checkout
            uses: actions/checkout@v6
